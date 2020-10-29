@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/pybind11/",
+                "${workspaceFolder}/pybind11/include",
+                "${workspaceFolder}/**",
+                "/usr/local/cuda/include",
+                ""
+            ],
+            "forcedInclude": [
+                "/usr/local/cuda/include/cuda.h",
+                "/usr/local/cuda/include/cuda_runtime.h",
+                "/usr/local/cuda/include/cuda_runtime_api.h",
+                "/usr/local/cuda/include/device_atomic_functions.h",
+                "/usr/local/cuda/include/device_launch_parameters.h"
+            ],
+            "defines": [
+                "atomicCAS(a,b,c)=0",
+                "atomicExch(a,b)=0"
+            ],
+            "compilerPath": "/usr/local/cuda/bin/nvcc",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/pybind11/",
+                    "${workspaceFolder}/pybind11/include",
+                    "${workspaceFolder}/**",
+                    "/usr/local/cuda/include/",
+                    ""
+                ]
+            },
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

@@ -6,7 +6,7 @@
         {
             "label": "setup",
             "type": "shell",
-            "command": "python setup.py install"
+            "command": "/home/liusida/anaconda3/envs/pocs/bin/python setup.py install"
         }
     ]
 }

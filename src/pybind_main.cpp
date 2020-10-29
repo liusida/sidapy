@@ -1,13 +1,14 @@
 #include <pybind11/pybind11.h>
 
-#include <my_func/my_func.h>
-#include <add/add.h>
+#include "label/label.h"
+#include "my_func/my_func.h"
+#include "add/add.h"
 
-namespace py = pybind11;
+// namespace py = pybind11;
 
 PYBIND11_MODULE(sidapy, m) {
     m.doc() = R"pbdoc(
-        Pybind11 example plugin
+        SidaPy: my personal bindings to C++ and CUDA
         -----------------------
 
         .. currentmodule:: sidapy
@@ -19,14 +20,16 @@ PYBIND11_MODULE(sidapy, m) {
            my_func
     )pbdoc";
     
+    m.def("label", &label, R"pbdoc(
+        Similar to scipy.ndimage.label.
+    )pbdoc");
+
     m.def("my_func", &my_func, R"pbdoc(
-        my function from cuda file.
+        My test function from cuda file.
     )pbdoc");
 
     m.def("add", &add, R"pbdoc(
-        Add two numbers
-
-        Some other explanation about the add function.
+        Add two numbers.
     )pbdoc");
 
 #ifdef VERSION_INFO
