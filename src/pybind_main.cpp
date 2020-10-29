@@ -1,8 +1,9 @@
 #include <pybind11/pybind11.h>
 
+#include "hw7q3_forest_fire/hw7q3_forest_fire.h"
+#include "add/add.h"
 #include "label/label.h"
 #include "my_func/my_func.h"
-#include "add/add.h"
 
 // namespace py = pybind11;
 
@@ -19,7 +20,9 @@ PYBIND11_MODULE(sidapy, m) {
            add
            my_func
     )pbdoc";
-    
+
+    py::class_<hw7q3_forest_fire>(m, "hw7q3_forest_fire").def(py::init<const int>()).def("set_spark_prob", &hw7q3_forest_fire::set_spark_prob).def("avg_forest_fire_size", &hw7q3_forest_fire::avg_forest_fire_size);
+
     m.def("label", &label, R"pbdoc(
         Similar to scipy.ndimage.label.
     )pbdoc");
