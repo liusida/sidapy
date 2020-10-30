@@ -21,7 +21,10 @@ PYBIND11_MODULE(sidapy, m) {
            my_func
     )pbdoc";
 
-    py::class_<hw7q3_forest_fire>(m, "hw7q3_forest_fire").def(py::init<const int>()).def("set_spark_prob", &hw7q3_forest_fire::set_spark_prob).def("avg_forest_fire_size", &hw7q3_forest_fire::avg_forest_fire_size);
+    py::class_<hw7q3_forest_fire>(m, "hw7q3_forest_fire")
+        .def(py::init<const int>())
+        .def("set_spark_prob", &hw7q3_forest_fire::set_spark_prob)
+        .def("avg_forest_fire_size", &hw7q3_forest_fire::avg_forest_fire_size);
 
     m.def("label", &label, R"pbdoc(
         Similar to scipy.ndimage.label.

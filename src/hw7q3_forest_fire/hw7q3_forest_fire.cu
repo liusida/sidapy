@@ -77,7 +77,8 @@ __device__ ssize_t count_same_continuous_label(int32_t *map, ssize_t x, ssize_t 
             }
             current_limb_length++;
             if (current_limb_length >= current_spiral_diameter) {
-                if (hit[0]==false && hit[1]==false && hit[2]==false && hit[3]==false) { // all four sides checked, early stop. This early stop is why we want this spiral style checking.
+                if (hit[0] == false && hit[1] == false && hit[2] == false &&
+                    hit[3] == false) { // all four sides checked, early stop. This early stop is why we want this spiral style checking.
                     keep_searching = false;
                     break;
                 }
@@ -173,6 +174,7 @@ hw7q3_forest_fire::~hw7q3_forest_fire() {
     }
     if (ret_fire_size != nullptr) {
         gpuErrchk(cudaFree(ret_fire_size));
+        ret_fire_size = nullptr;
     }
     if (_verbose)
         printf("cleaned.\n");
